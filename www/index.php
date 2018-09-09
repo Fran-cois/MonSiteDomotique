@@ -2,10 +2,10 @@
   /*****************************************
   *  Constantes et variables
   *****************************************/
-  define('LOGIN','francois');  // Login correct
-  define('PASSWORD','rpi-123-456');  // Mot de passe correct
+  define('LOGIN','login');  // Login correct
+  define('PASSWORD','123456');  // Mot de passe correct
   $message = '';      // Message à afficher à l'utilisateur
- 
+
   /*****************************************
   *  Vérification du formulaire
   *****************************************/
@@ -38,13 +38,13 @@
         session_start();
         // On enregistre le login en session
         $_SESSION['login'] = $_POST['login'];
-		$_SESSION['PASSWORD'] = $_POST['motDePasse'];
+		    $_SESSION['PASSWORD'] = $_POST['motDePasse'];
 
       // L'identification a réussi
       $message = 'Bienvenue '. LOGIN .' !';
        header('Location: domotique.php');
 	   exit();
-      
+
     }
   }
 ?>
@@ -65,12 +65,12 @@
       <fieldset>
         <legend>Identifiant</legend>
           <p>
-             <label for="login">Login :</label> 
+             <label for="login">Login :</label>
             <input type="text" name="login" id="login" value="<?php if(!empty($_POST['login'])) { echo htmlspecialchars($_POST['login'], ENT_QUOTES); } ?>" />
           </p>
           <p>
-            <label for="password">Mot de passe :</label> 
-            <input type="password" name="motDePasse" id="password" value="" /> 
+            <label for="password">Mot de passe :</label>
+            <input type="password" name="motDePasse" id="password" value="" />
             <input type="submit" name="submit" value="Identification" />
           </p>
       </fieldset>
@@ -78,4 +78,3 @@
 	  </center>
   </body>
 </html>
-
